@@ -10,60 +10,62 @@
         android:id="@+id/generateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GENERATE"
+        android:text="Generate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.571" />
 
     <TextView
         android:id="@+id/labelSide2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2nd Side:"
+        android:layout_width="45dp"
+        android:layout_height="20dp"
+        android:text="Side 2:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.249"
+        app:layout_constraintHorizontal_bias="0.254"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.344" />
+        app:layout_constraintVertical_bias="0.367" />
 
     <TextView
         android:id="@+id/labelSide3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3rd Side:"
+        android:layout_width="45dp"
+        android:layout_height="20dp"
+        android:text="Side 3:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.246"
+        app:layout_constraintHorizontal_bias="0.254"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.412" />
+        app:layout_constraintVertical_bias="0.457" />
 
     <TextView
         android:id="@+id/labelSide1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1st Side:"
+        android:text="Side 1:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.246"
+        app:layout_constraintHorizontal_bias="0.26"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.275" />
+        app:layout_constraintVertical_bias="0.269" />
 
     <TextView
         android:id="@+id/resultsTextBox"
         android:layout_width="226dp"
         android:layout_height="113dp"
         android:layout_marginTop="428dp"
-        android:text="RESULTS TEXTBOX"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.536" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -80,33 +82,32 @@
     <EditText
         android:id="@+id/input1"
         android:layout_width="115dp"
-        android:layout_height="36dp"
+        android:layout_height="45dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.276" />
+        app:layout_constraintVertical_bias="0.257" />
 
     <EditText
         android:id="@+id/input3"
         android:layout_width="115dp"
-        android:layout_height="36dp"
+        android:layout_height="45dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/input2"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/input2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.411" />
+        app:layout_constraintVertical_bias="0.45" />
 
     <EditText
         android:id="@+id/input2"
         android:layout_width="115dp"
-        android:layout_height="36dp"
+        android:layout_height="45dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -114,7 +115,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/input1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.342" />
+        app:layout_constraintVertical_bias="0.354" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
