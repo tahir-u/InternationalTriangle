@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -30,11 +31,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Add button handler/listener
         this.buttonClick = findViewById(R.id.generateButton);
         this.buttonClick.setOnClickListener(MainActivity.this);
+        this.buttonClick.setInputType(InputType.TYPE_NULL);
 
         // Add text handlers/listeners
         this.sideOne = findViewById(R.id.input1);
+        this.sideOne.setInputType(InputType.TYPE_CLASS_NUMBER);
+
         this.sideTwo = findViewById(R.id.input2);
+        this.sideTwo.setInputType(InputType.TYPE_CLASS_NUMBER);
+
         this.sideThree = findViewById(R.id.input3);
+        this.sideThree.setInputType(InputType.TYPE_CLASS_NUMBER);
 
         // Add results handler
         this.results = findViewById(R.id.resultsTextBox);
