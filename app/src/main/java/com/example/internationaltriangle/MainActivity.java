@@ -36,6 +36,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.sideTwo = findViewById(R.id.input2);
         this.sideThree = findViewById(R.id.input3);
 
+        // Add results handler
+        this.results = findViewById(R.id.resultsTextBox);
+
     }
 
     public void onClick(View v) {
@@ -44,11 +47,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             int sideOne = Integer.parseInt(this.sideOne.getText().toString());
             int sideTwo = Integer.parseInt(this.sideTwo.getText().toString());
             int sideThree = Integer.parseInt(this.sideThree.getText().toString());
+            boolean isValidTriangle = this.isValidTriangle(sideOne, sideTwo, sideThree);
 
-            String isValid = isValidTriangle(sideOne, sideTwo, sideThree) ?
+            String isValid = isValidTriangle ?
                     "Valid Triangle" :
                     "Invalid Triangle";
-            System.out.println(isValid);
+            String triangleType = this.getTriangleType(sideOne, sideTwo, sideThree);
+
+            if (isValidTriangle) {
+                this.results.clearComposingText();
+                this.results.setText(isValid + " (" + triangleType + ")");
+            } else {
+                this.results.clearComposingText();
+                this.results.setText(isValid);
+            }
+
         }
     }
 
@@ -64,5 +77,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         return (sidesTotal == (max * max));
+    }
+
+    public String getTriangleType(int sideOne, int sideTwo, int sideThree) {
+        Integer[] sides = { sideOne, sideTwo, sideThree };
+
+        boolean isEquilateral = (sides[0] == sides[1] && sides[1] == sides[2]);
+        boolean isScalene = (sides[0] != sides[1] && sides[1] != sides[2] && sides[0] != sides[2]);
+        boolean isIsosceles = (sides[0] == sides[1] && sides[0] != sides[2]) ||
+                (sides[0] == sides[2] && sides[0] != sides[1]);
+
+        if (isEquilateral) {
+            return "Equilateral";
+        } else if (isScalene) {
+            return "Scalene";
+        } else {
+            return "Isosceles";
+        }
     }
 }
