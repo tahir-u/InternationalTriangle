@@ -2,12 +2,9 @@ package com.example.internationaltriangle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.InputType;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Button;
 
@@ -91,8 +88,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         boolean isEquilateral = (sides[0] == sides[1] && sides[1] == sides[2]);
         boolean isScalene = (sides[0] != sides[1] && sides[1] != sides[2] && sides[0] != sides[2]);
-        boolean isIsosceles = (sides[0] == sides[1] && sides[0] != sides[2]) ||
-                (sides[0] == sides[2] && sides[0] != sides[1]);
+//        boolean isIsosceles = (sides[0] == sides[1] && sides[0] != sides[2]) ||
+//                (sides[0] == sides[2] && sides[0] != sides[1]);
 
         if (isEquilateral) {
             return "Equilateral";
