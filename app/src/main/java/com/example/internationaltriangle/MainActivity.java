@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int sideOne = Integer.parseInt(this.sideOne.getText().toString());
                 int sideTwo = Integer.parseInt(this.sideTwo.getText().toString());
                 int sideThree = Integer.parseInt(this.sideThree.getText().toString());
-                boolean isValidTriangle = this.isValidTriangle(sideOne, sideTwo, sideThree);
                 String triangleType = this.getTriangleType(sideOne, sideTwo, sideThree);
 
                 this.results.clearComposingText();
@@ -69,22 +68,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-//    public boolean isValidTriangle(int sideOne, int sideTwo, int sideThree) {
-//        Integer[] sides = { sideOne, sideTwo, sideThree };
-//        int max = Collections.max(Arrays.asList(sides));
-//        int sidesTotal = 0;
-//
-//        for (int i = 0; i < sides.length; i += 1) {
-//            if (sides[i] != max) {
-//                sidesTotal += (sides[i] * sides[i]);
-//            }
-//        }
-//
-//        return (sidesTotal == (max * max));
-//    }
-
     public String getTriangleType(int sideOne, int sideTwo, int sideThree) {
         Integer[] sides = { sideOne, sideTwo, sideThree };
+
+        // Check for negative values
+        if (sideOne <= 0 || sideTwo <= 0 || sideThree <= 0) {
+            return "One or more triangle sides were invalid.";
+        }
 
         boolean isEquilateral = (sides[0] == sides[1] && sides[1] == sides[2]);
         boolean isScalene = (sides[0] != sides[1] && sides[1] != sides[2] && sides[0] != sides[2]);
