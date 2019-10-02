@@ -52,10 +52,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     double sideTwo = Double.parseDouble(this.sideTwo.getText().toString());
                     double sideThree = Double.parseDouble(this.sideThree.getText().toString());
 
-                    String triangleType = this.getTriangleTypes(sideOne, sideTwo, sideThree);
+                    if (Double.compare(sideOne, 0) == 0 || Double.compare(sideTwo, 0) == 0 || Double.compare(sideThree, 0) == 0) {
+                        this.results.clearComposingText();
+                        this.results.setText("Goodbye!");
+                    } else {
+                        String triangleType = this.getTriangleTypes(sideOne, sideTwo, sideThree);
 
-                    this.results.clearComposingText();
-                    this.results.setText(triangleType + " triangle");
+                        this.results.clearComposingText();
+                        this.results.setText(triangleType);
+                    }
                 } catch (Exception e) {
                     this.results.clearComposingText();
                     this.results.setText("One or more triangle sides were invalid.");
@@ -75,6 +80,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Check for negative values
         if (sideOne <= 0 || sideTwo <= 0 || sideThree <= 0) {
             return "One or more triangle sides were invalid.";
+        } else if ((sideOne + sideTwo < sideThree) || (sideOne + sideThree < sideOne) || (sideTwo + sideThree < sideOne)) {
+            return "Invalid triangle (the inputs do not form a triangle).";
         }
 
         boolean isEquilateral = Double.compare(sides[0], sides[1]) == 0 &&
@@ -84,11 +91,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Double.compare(sides[0], sides[2]) != 0;
 
         if (isEquilateral) {
-            return "Equilateral";
+            return "Equilateral triangle";
         } else if (isScalene) {
-            return "Scalene";
+            return "Scalene triangle";
         } else {
-            return "Isosceles";
+            return "Isosceles triangle";
         }
     }
 
