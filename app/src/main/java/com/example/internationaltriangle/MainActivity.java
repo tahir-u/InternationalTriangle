@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.languageSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                String label = b ? "Spanish" : "English";
+                String label = b ? "Español" : "English";
                 compoundButton.setText(label);
             }
         });
@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         result.put("side 1", "Side 1:");
         result.put("side 2", "Side 2:");
         result.put("side 3", "Side 3:");
+        result.put("generate", "Generate");
 
         result.put("equilateral", "Equilateral Triangle.");
         result.put("isosceles", "Isosceles Triangle.");
@@ -95,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         result.put("side 1", "Lado 1:");
         result.put("side 2", "Lado 2:");
         result.put("side 3", "Lado 3:");
+        result.put("generate", "Generar");
 
         result.put("equilateral", "Triángulo equilátero.");
         result.put("isosceles", "Triángulo isósceles.");
@@ -112,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void setCurrentPhrases(String language) {
         switch (language) {
-            case "Spanish":
+            case "Español":
                 this.currentPhrases = this.generateSpanishPhrases();
                 break;
             default:
@@ -125,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.labelOne.setText(this.currentPhrases.get("side 1"));
         this.labelTwo.setText(this.currentPhrases.get("side 2"));
         this.labelThree.setText(this.currentPhrases.get("side 3"));
+        this.buttonClick.setText(this.currentPhrases.get("generate"));
     }
 
     public void onClick(View v) {
