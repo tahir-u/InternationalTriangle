@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonClick;
@@ -15,6 +18,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView sideTwo;
     private TextView sideThree;
     private TextView results;
+    private HashMap<String, String> englishPhrases;
+    private HashMap<String, String> spanishPhrases;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Add results handler
         this.results = findViewById(R.id.resultsTextBox);
 
+        // Phrases for output
+        this.englishPhrases = this.generateEnglishPhrases();
+        this.spanishPhrases = this.generateSpanishPhrases();
+
+    }
+
+    private HashMap<String, String> generateEnglishPhrases() {
+        HashMap<String, String> result = new HashMap();
+
+        result.put("equilateral", "Equilateral Triangle.");
+        result.put("isosceles", "Isosceles Triangle.");
+        result.put("scalene", "Scalene Triangle.");
+
+        result.put("goodbye", "Goodbye!");
+
+        result.put("invalid sides", "One or more triangle sides were invalid.");
+        result.put("invalid triangle", "Invalid triangle (the inputs do not form a triangle).");
+        result.put("missing sides", "One or more sides are missing for the triangle type calculation.");
+
+        return result;
+    }
+
+    private HashMap<String, String> generateSpanishPhrases() {
+        HashMap<String, String> result = new HashMap();
+
+        result.put("equilateral", "Triángulo equilátero.");
+        result.put("isosceles", "Triángulo isósceles.");
+        result.put("scalene", "Triángulo escaleno.");
+
+        result.put("goodbye", "Adiós!");
+
+        result.put("invalid sides", "Uno o más lados del triángulo no eran válidos.");
+        result.put("invalid triangle", "\n" +
+                "Triángulo no válido (las entradas no forman un triángulo).");
+        result.put("missing sides", "Faltan uno o más lados para el cálculo del tipo de triángulo.");
+
+        return result;
     }
 
     public void onClick(View v) {
