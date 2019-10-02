@@ -8,10 +8,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
 
-// Java Specific
-import java.util.Arrays;
-import java.util.Collections;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonClick;
@@ -32,13 +28,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // Add text handlers/listeners
         this.sideOne = findViewById(R.id.input1);
-        this.sideOne.setInputType(InputType.TYPE_CLASS_NUMBER);
 
         this.sideTwo = findViewById(R.id.input2);
-        this.sideTwo.setInputType(InputType.TYPE_CLASS_NUMBER);
 
         this.sideThree = findViewById(R.id.input3);
-        this.sideThree.setInputType(InputType.TYPE_CLASS_NUMBER);
 
         // Add results handler
         this.results = findViewById(R.id.resultsTextBox);
@@ -53,13 +46,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String sideThreeString = this.sideThree.getText().toString();
 
             if (isValidInput(sideOneString, sideTwoString, sideThreeString)) {
-                int sideOne = Integer.parseInt(this.sideOne.getText().toString());
-                int sideTwo = Integer.parseInt(this.sideTwo.getText().toString());
-                int sideThree = Integer.parseInt(this.sideThree.getText().toString());
-                String triangleType = this.getTriangleType(sideOne, sideTwo, sideThree);
 
-                this.results.clearComposingText();
-                this.results.setText(triangleType + " triangle");
+                try {
+                    double sideOne = Double.parseDouble(this.sideOne.getText().toString());
+                    double sideTwo = Double.parseDouble(this.sideTwo.getText().toString());
+                    double sideThree = Double.parseDouble(this.sideThree.getText().toString());
+
+                    String triangleType = this.getTriangleTypes(sideOne, sideTwo, sideThree);
+
+                    this.results.clearComposingText();
+                    this.results.setText(triangleType + " triangle");
+                } catch (Exception e) {
+                    this.results.clearComposingText();
+                    this.results.setText("One or more triangle sides were invalid.");
+                }
+
             } else {
                 this.results.clearComposingText();
                 this.results.setText("One or more sides are missing for the triangle type calculation.");
@@ -68,18 +69,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public String getTriangleType(int sideOne, int sideTwo, int sideThree) {
-        Integer[] sides = { sideOne, sideTwo, sideThree };
+    public String getTriangleTypes(double sideOne, double sideTwo, double sideThree) {
+        Double[] sides = { sideOne, sideTwo, sideThree };
 
         // Check for negative values
         if (sideOne <= 0 || sideTwo <= 0 || sideThree <= 0) {
             return "One or more triangle sides were invalid.";
         }
 
-        boolean isEquilateral = (sides[0] == sides[1] && sides[1] == sides[2]);
-        boolean isScalene = (sides[0] != sides[1] && sides[1] != sides[2] && sides[0] != sides[2]);
-//        boolean isIsosceles = (sides[0] == sides[1] && sides[0] != sides[2]) ||
-//                (sides[0] == sides[2] && sides[0] != sides[1]);
+        boolean isEquilateral = Double.compare(sides[0], sides[1]) == 0 &&
+                Double.compare(sides[1], sides[2]) == 0;
+        boolean isScalene = Double.compare(sides[0], sides[1]) != 0 &&
+                Double.compare(sides[1], sides[2]) != 0 &&
+                Double.compare(sides[0], sides[2]) != 0;
 
         if (isEquilateral) {
             return "Equilateral";
