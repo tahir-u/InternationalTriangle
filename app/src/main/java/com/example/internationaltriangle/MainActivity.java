@@ -67,8 +67,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
             } else {
-                this.results.clearComposingText();
-                this.results.setText("One or more sides are missing for the triangle type calculation.");
+
+                if (sideOneString.contains("0") || sideTwoString.contains("0") || sideThreeString.contains("0")) {
+                    this.results.clearComposingText();
+                    this.results.setText("Goodbye!");
+                } else {
+                    this.results.clearComposingText();
+                    this.results.setText("One or more sides are missing for the triangle type calculation.");
+                }
             }
 
         }
